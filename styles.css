@@ -28,6 +28,13 @@ body {
     margin-right: 16px;
 }
 
+.nav-right {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+    margin-left: auto;
+}
+
 #nav ul {
     list-style: none;
     display: flex;
@@ -51,14 +58,6 @@ body {
 #nav ul li a.active {
     background-color: #3b5bdb;
     color: white;
-}
-
-#sign-in{
-    float:right;
-}
-
-#sign-up{
-    float:right;
 }
 
 /* LAYOUT */

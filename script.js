@@ -95,9 +95,27 @@ form.addEventListener('submit', (e) => {
     form.reset();
     dialog.close();
 });
+let activeGenre = 'All Books';
 
-addBookToLibrary('The Pragmatic Programmer', 'Andrew Hunt', 352, 'Technology', true);
-addBookToLibrary('Clean Code', 'Robert C. Martin', 464, 'Technology', false);
-addBookToLibrary("You Don't Know JS", 'Kyle Simpson', 278, 'Technology', true);
-addBookToLibrary('Atomic Habits', 'James Clear', 320, 'Self-Help', false);
-displayBooks();
+function displayBooks() {
+    const grid = document.getElementById('booksGrid');
+    grid.innerHTML = '';
+
+    const filtered = activeGenre === 'All Books'
+        ? myLibrary
+        : myLibrary.filter(b => b.genre === activeGenre);
+
+    filtered.forEach(book => {
+        // same card code as before
+    });
+    updateStats();
+}
+document.querySelectorAll('#sidebar ul li a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('#sidebar ul li a').forEach(l => l.classList.remove('active'));
+        e.target.classList.add('active');
+        activeGenre = e.target.textContent;
+        displayBooks();
+    });
+});
