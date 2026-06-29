@@ -7,15 +7,97 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-   <h1>Library App</h1>
-    <nav>
+
+    <nav id="nav">
+        <div class="nav-logo">My Library</div>
         <ul>
-            <li><a href="default.asp">Home</a></li>
-            <li><a href="news.asp">News</a></li>
-            <li><a href="contact.asp">Contact</a></li>
-            <li><a href="about.asp">About</a></li>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">All Books</a></li>
+            <li id="sign-in"><a href="#">Sign In</a></li>
+            <li id="sign-up"><a href="#">Sign Up</a></li>
         </ul>
     </nav>
-   <script src="script.js"></script>
+
+    <div class="layout">
+
+        <aside id="sidebar">
+            <h3>Genres</h3>
+            <ul>
+                <li><a href="#" class="active">All Books</a></li>
+                <li><a href="#">Fiction</a></li>
+                <li><a href="#">Non-Fiction</a></li>
+                <li><a href="#">Science</a></li>
+                <li><a href="#">Technology</a></li>
+                <li><a href="#">History</a></li>
+                <li><a href="#">Biography</a></li>
+                <li><a href="#">Self-Help</a></li>
+                <li><a href="#">Other</a></li>
+            </ul>
+        </aside>
+
+        <main id="main">
+            <div class="main-header">
+                <h2>All Books</h2>
+                <button id="newBookBtn">+ New Book</button>
+            </div>
+            <div class="books-grid" id="booksGrid"></div>
+        </main>
+
+        <aside id="info">
+            <h3>Progress</h3>
+            <div class="stat-card">
+                <span class="stat-label">Total Books</span>
+                <span class="stat-value" id="totalBooks">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Books Read</span>
+                <span class="stat-value" id="booksRead">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">Unread</span>
+                <span class="stat-value" id="booksUnread">0</span>
+            </div>
+            <div class="progress-section">
+                <span class="stat-label">Reading Progress</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+        </aside>
+
+    </div>
+
+    <dialog id="addBookDialog">
+        <h2>Add a new book</h2>
+        <form id="addBookForm">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" required placeholder="The Great Gatsby">
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" id="author" required placeholder="F. Scott Fitzgerald">
+            </div>
+            <div class="form-group">
+                <label for="pages">Pages</label>
+                <input type="number" id="pages" required placeholder="180">
+            </div>
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" placeholder="Fiction">
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="readStatus">
+                <label for="readStatus">Already read</label>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="cancelBtn">Cancel</button>
+                <button type="submit">Add Book</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
 </body>
 </html>
